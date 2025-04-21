@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Packet Sniffer Web App
 
-## Getting Started
+A simple web application that allows you to "sniff" network traffic directly in your browser.
 
-First, run the development server:
+[Leia em Português 🇧🇷](/readme/pt-BR/README.md)
+
+![Next.js](https://img.shields.io/badge/Next.js-13+-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-4.9+-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3+-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+## 📦 Technologies Used
+
+- ✅ Next.js with App Router
+- ✅ TypeScript
+- ✅ Tailwind CSS
+- ✅ Node.js (Express in the `server/` directory)
+- ✅ Native `cap` library for packet capturing
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm, yarn, or pnpm
+- [WinPcap/Npcap (Windows)](https://npcap.com/) or `libpcap` (Linux/macOS)
+- Python 3 and native build tools (e.g., `build-essential`, `windows-build-tools`)
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/DaniHRE/packet-sniffer.git
+cd packet-sniffer
+```
+
+2. Install the dependencies:
+
+```bash
+npm install
+# or
+pnpm install
+```
+
+3. Configure the `cap` library (for sniffing):
+
+#### On Windows
+
+- Install [Npcap](https://npcap.com/) with WinPcap API support.
+- Restart the system if necessary.
+- Ensure you have administrator permissions.
+
+#### On Linux
+
+```bash
+sudo apt update
+sudo apt install libpcap-dev build-essential python3
+```
+
+#### On macOS
+
+```bash
+brew install libpcap
+xcode-select --install
+```
+
+4. Run the capture server:
+
+```bash
+npm run sniffer
+# or
+pnpm run sniffer
+```
+
+5. In another terminal, start the front-end:
 
 ```bash
 npm run dev
 # or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+packet-sniffer/
+├── app/                 # Next.js pages and layouts
+│   └── page.tsx         # Home page
+├── server/              # Express server for packet capturing
+├── components.json      # Components configuration
+├── next.config.ts       # Next.js configuration
+├── package.json         # Dependencies and scripts
+├── postcss.config.mjs   # PostCSS configuration
+├── tailwind.config.js   # Tailwind CSS configuration
+├── tsconfig.json        # TypeScript configuration
+└── README.md            # This file
+```
 
-## Learn More
+## 🔒 Security
 
-To learn more about Next.js, take a look at the following resources:
+This application is intended for educational and demonstration purposes. Make sure to use it in controlled environments and with appropriate permissions.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
